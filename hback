@@ -1,0 +1,23 @@
+#!/bin/bash
+# hayou - nguyen.quanghai1@gmail.com
+# Vers :  0.1
+# 2012-04-13
+
+
+date=`date +%Y-%m-%d`
+filename="$(/usr/bin/basename "${1}")"
+
+if [ -z "$filename" -a ! -f "$filename" ]; then
+        usage
+        exit 1
+fi
+
+rev=0
+backup="$filename.$date.R$rev"
+
+while [ -f $backup ]; do
+        let rev+=1
+        backup="$filename.$date.R$rev"
+done
+/bin/cp -ip "${1}" "${backup}"
+
