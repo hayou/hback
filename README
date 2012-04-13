@@ -1,1 +1,6 @@
-How to make a fast backup 
+How to make a fast backup - with date and version
+Example : 
+$ hback test.sh 
+
+Result :
+test.sh.2012-04-13.R0
